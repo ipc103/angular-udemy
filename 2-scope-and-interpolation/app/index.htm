@@ -64,6 +64,12 @@
                 <button ng-click="alertClicked()">Click Me</button>
             </div>
 
+            <ul>
+              <li ng-repeat="gif in gifs">
+                {{ gif.images.fixed_height.url }}
+              </li>
+            </ul>
+
 		</div>
 
     </body>

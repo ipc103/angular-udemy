@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp', []);
 
-myApp.controller('mainController', ['$scope','$timeout', '$filter',  function($scope, $timeout, $filter) {
+myApp.controller('mainController', ['$scope','$timeout', '$filter', '$http', function($scope, $timeout, $filter, $http) {
 
   $scope.name = "Ian";
   $scope.handle = "";
@@ -27,6 +27,19 @@ myApp.controller('mainController', ['$scope','$timeout', '$filter',  function($s
   $scope.alertClicked = function(){
     alert("You clicked me!");
   }
+
+  var rulesrequest = new XMLHttpRequest();
+  rulesrequest.onreadystatechange = function(){
+      $scope.$apply(function(){
+        if (rulesrequest.readyState == 4 && rulesrequest.status == 200) {
+          $scope.gifs = JSON.parse(rulesrequest.responseText);
+        }
+      })
+
+  }
+
+  rulesrequest.open("GET", 'http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC', true);
+  rulesrequest.send();
 
 
 
