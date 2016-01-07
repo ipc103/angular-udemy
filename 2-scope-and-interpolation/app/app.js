@@ -28,18 +28,22 @@ myApp.controller('mainController', ['$scope','$timeout', '$filter', '$http', fun
     alert("You clicked me!");
   }
 
-  var rulesrequest = new XMLHttpRequest();
-  rulesrequest.onreadystatechange = function(){
-      $scope.$apply(function(){
-        if (rulesrequest.readyState == 4 && rulesrequest.status == 200) {
-          $scope.gifs = JSON.parse(rulesrequest.responseText);
-        }
-      })
+  // var rulesrequest = new XMLHttpRequest();
+  // rulesrequest.onreadystatechange = function(){
+  //     $scope.$apply(function(){
+  //       if (rulesrequest.readyState == 4 && rulesrequest.status == 200) {
+  //         $scope.gifs = JSON.parse(rulesrequest.responseText).data;
+  //       }
+  //     })
+  //
+  // }
+  //
+  // rulesrequest.open("GET", 'http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC', true);
+  // rulesrequest.send();
 
-  }
-
-  rulesrequest.open("GET", 'http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC', true);
-  rulesrequest.send();
+  $http.get('http://api.giphy.com/v1/gifs/search?q=funny+cat&api_key=dc6zaTOxFJmzC').then(function(response){
+    $scope.gifs = response.data.data;
+  })
 
 
 
