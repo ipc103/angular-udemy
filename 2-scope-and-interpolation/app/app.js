@@ -24,6 +24,10 @@ myApp.controller('mainController', ['$scope','$timeout', '$filter',  function($s
     })
   }, 3000)
 
+  $scope.alertClicked = function(){
+    alert("You clicked me!");
+  }
+
 
 
 }]);

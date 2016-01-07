@@ -55,11 +55,13 @@
                     You have more than 5 characters.
                   </div>
                 </div>
-                <ul>
+                <ul ng-cloak>
                   <li ng-repeat="player in players">
                     {{ player.name }}
                   </li>
                 </ul>
+
+                <button ng-click="alertClicked()">Click Me</button>
             </div>
 
 		</div>
