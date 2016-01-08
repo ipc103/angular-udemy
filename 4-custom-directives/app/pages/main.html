@@ -4,4 +4,4 @@
 <h3>Search Results</h3>
 
 
-  <search-result person="person" formatted-address-function="formattedAddress(aperson)"></search-result>
+  <search-result ng-repeat="person in people" person="person" formatted-address-function="formattedAddress(aperson)"></search-result>
