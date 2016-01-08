@@ -1,4 +1,7 @@
-<a href="#" class="list-group-item">
-  <h4 class="list-group-item-heading">{{ personName}}</h4>
-  <p class="list-group-item-text">{{ personAddress }}</p>
-</a>
+<div class="list-group">
+  <a href="#" class="list-group-item">
+    <h4 class="list-group-item-heading">{{ person.name}}</h4>
+    <p class="list-group-item-text">{{ formattedAddressFunction({aperson: person}) }}</p>
+  </a>
+
+</div>

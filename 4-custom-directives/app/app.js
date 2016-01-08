@@ -24,7 +24,13 @@ myApp.config(function ($routeProvider) {
 myApp.controller('mainController', ['$scope', '$log', function($scope, $log) {
   $scope.person = {
     name: "John Doe",
-    address: "Pittsburgh, PA 15218"
+    city: "Pittsburgh",
+    state: "PA",
+    zip: "15218",
+  }
+
+  $scope.formattedAddress = function(person){
+    return "Formatted: " + person.city + ", " + person.state + " " + person.zip;
   }
 
 }]);
@@ -41,8 +47,9 @@ myApp.directive('searchResult', function(){
     templateUrl: 'directives/searchresult.html',
     replace: true,
     scope: {
-      personName: "@", //text for the directive
-      personAddress: "@"
+      personName: "@", //text for the directive, one way binding
+      person: "=", //this is a two way binding
+      formattedAddressFunction: "&" // this sends a function definition
     }
   }
 })
