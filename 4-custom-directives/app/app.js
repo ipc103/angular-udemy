@@ -72,6 +72,7 @@ myApp.directive('searchResult', function(){
           // binds or links it into the DOM - for an array of 50 people, will get called 50 times
       console.log("Postlinking...");
       console.log(elements);
-    }
+    },
+    transclude: true
   }
 })
