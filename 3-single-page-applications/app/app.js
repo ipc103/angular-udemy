@@ -12,6 +12,11 @@ myApp.config(function($routeProvider){ // method that takes a function, inject r
     templateUrl: 'pages/second.html',
     controller: 'secondController'
   })
+
+  .when('/second/:num', {
+    templateUrl: 'pages/second.html',
+    controller: 'secondController'
+  })
 })
 myApp.controller('mainController', ['$scope', '$location', '$log', function($scope, $location, $log) {
 
@@ -19,8 +24,9 @@ myApp.controller('mainController', ['$scope', '$location', '$log', function($sco
 
 }]);
 
-myApp.controller('secondController', ['$scope', '$location', '$log', function($scope, $location, $log) {
+myApp.controller('secondController', ['$scope', '$location', '$log', '$routeParams', function($scope, $location, $log, $routeParams) {
 
-  $scope.name = "Jimi - Second Page"
+  $scope.name = "Jimi - Second Page";
+  $scope.num = $routeParams.num || "There is no route";
 
 }]);
