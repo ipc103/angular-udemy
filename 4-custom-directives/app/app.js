@@ -67,23 +67,11 @@ myApp.directive('searchResult', function(){
       person: "=", //this is a two way binding
       formattedAddressFunction: "&" // this sends a function definition
     },
-    compile: function(elem, attrs){
-      console.log('Compiling...');
-      // runs once for to generate the element for the directive on page load
-      // initializes the directive without using it
-      console.log(elem);
-      return {
-        pre: function(scope, element, attributes){
-          console.log("Prelinking...");
-          console.log(element);
-        },
-        post: function(scope, elements, attributes){
+    link: function(scope, elements, attributes){
           // gets run once for each time something in the directive is generated
           // binds or links it into the DOM - for an array of 50 people, will get called 50 times
-          console.log("Postlinking...");
-          console.log(elements);
-        }
-      }
+      console.log("Postlinking...");
+      console.log(elements);
     }
   }
 })
