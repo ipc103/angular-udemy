@@ -22,8 +22,10 @@ myApp.config(function ($routeProvider) {
 });
 
 myApp.controller('mainController', ['$scope', '$log', function($scope, $log) {
-
-
+  $scope.person = {
+    name: "John Doe",
+    address: "Pittsburgh, PA 15218"
+  }
 
 }]);
 
@@ -37,6 +39,10 @@ myApp.directive('searchResult', function(){
   return {
     restrict: 'AECM', //allow Attribute, Element, Classname, Comment
     templateUrl: 'directives/searchresult.html',
-    replace: true
+    replace: true,
+    scope: {
+      personName: "@", //text for the directive
+      personAddress: "@"
+    }
   }
 })
