@@ -59,8 +59,12 @@ weatherApp.service('city', function(){
 weatherApp.directive('weatherReport', function(){
   return {
     templateUrl: 'directives/weatherReport.html',
-    convertToDate: '&',
-    convertToFarenheit: '&',
-    weather: '='
+    replace: true,
+    scope: {
+      convertDate: '&',
+      convertTemp: '&',
+      weath: '=',
+      dateFormat: '@'
+    }
   }
 })
