@@ -53,3 +53,14 @@ weatherApp.controller('forecastCtrl', ['$scope', '$routeParams', '$resource', 'c
 weatherApp.service('city', function(){
   this.name = 'New York, NY';
 })
+
+// DIRECTIVES
+
+weatherApp.directive('weatherReport', function(){
+  return {
+    templateUrl: 'directives/weatherReport.html',
+    convertToDate: '&',
+    convertToFarenheit: '&',
+    weather: '='
+  }
+})

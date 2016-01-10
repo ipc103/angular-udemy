@@ -6,17 +6,7 @@ Days: <a href="#/forecast/2" ng-class="{'bg-primary': days === '2'}">2</a> | <a 
 <div ng-repeat="weatherReport in weather.list">
   <div class="row">
     <div class="col-md-12">
-      <div class="panel panel-default">
-
-        <div class="panel-heading">
-          <h3 class="panel-title">{{ convertToDate(weatherReport.dt) | date: 'MMM d, y'}}</h3>
-        </div>
-
-        <div class="panel-body">
-          Daytime Temperature: {{ convertToFarenheit(weatherReport.temp.day) }}
-        </div>
-
-      </div>
+      <weather-report weather="weatherReport" convert-to-farenheit="convertToFarenheit(daysTemp)" convert-to-date = 'convertToDate(date)'></weather-report>
     </div>
   </div>
 
