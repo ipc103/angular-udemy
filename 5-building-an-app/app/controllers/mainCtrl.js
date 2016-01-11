@@ -1,11 +1,11 @@
 weatherApp.controller('mainCtrl', ['$scope', '$location', 'city', function($scope, $location, city){
-  $scope.name = city.name;
+  this.name = city.name;
+  var self = this;
+  $scope.$watch(angular.bind(self.name, function(){
+    city.name = self.name;
+  }))
 
-  $scope.$watch('name', function(){
-    city.name = $scope.name;
-  })
-
-  $scope.submit = function(){
+  this.submit = function(){
     $location.path('/forecast')
   }
 }])
