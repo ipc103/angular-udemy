@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
       <label>Get Forecast By City</label>
-      <input type="text" class="form-control" ng-model='name'>
-      <a href='#/forecast' class="btn btn-primary">Get Forecast</a>
+      <form ng-submit="submit()">
+        <input type="text" class="form-control" ng-model='name'>
+        <input type="submit" class="btn btn-primary" value="Get Forecast">
+      </form>
   </div>
 </div>
