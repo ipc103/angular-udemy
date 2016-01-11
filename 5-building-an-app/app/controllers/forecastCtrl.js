@@ -1,9 +1,8 @@
-weatherApp.controller('forecastCtrl', ['$scope', '$routeParams', '$resource', 'city', function($scope, $routeParams, $resource, city){
+weatherApp.controller('forecastCtrl', ['$scope', '$routeParams', 'city', 'weatherService', function($scope, $routeParams, city, weatherService){
   $scope.name = city.name;
   $scope.days = $routeParams.days || '2';
-  $scope.weatherAPI = $resource('http://api.openweathermap.org/data/2.5/forecast/daily?APPID=b75b6d85630e2ef1226b8e3df6bf933b', {callback: "JSON_CALLBACK"}, {get: {method: 'JSONP'}});
 
-  $scope.weather = $scope.weatherAPI.get({q: $scope.name, cnt: $scope.days});
+  $scope.weather = weatherService.weather($scope.name, $scope.days);
 
   $scope.convertToFarenheit = function(degK){
     return Math.round(1.8 * degK - 459.67);
