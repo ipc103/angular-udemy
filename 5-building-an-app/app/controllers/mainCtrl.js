@@ -1,4 +1,4 @@
-weatherApp.controller('mainCtrl', ['$scope','$location', 'city', function($scope, $location, city){
+weatherApp.controller('mainCtrl', ['$scope', '$location', 'city', function($scope, $location, city){
   $scope.name = city.name;
 
   $scope.$watch('name', function(){
